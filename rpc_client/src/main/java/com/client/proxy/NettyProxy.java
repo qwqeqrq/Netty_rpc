@@ -1,6 +1,7 @@
 package com.client.proxy;
 
 
+import com.client.dto.Student;
 import com.client.handler.ClientHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelInitializer;
@@ -41,7 +42,8 @@ public class NettyProxy {
                         initClient();
                     }
                     // 设置参数
-                    client.setPara(providerName + args[0]);
+                   // client.setPara(providerName + args[0]);
+                    client.setStudentParam((Student) args[0]);
                     return executor.submit(client).get();
                 });
     }
